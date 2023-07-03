@@ -1,50 +1,56 @@
+import 'package:bloc_learn/API/search/func.dart';
 import 'package:bloc_learn/core/constants.dart';
+import 'package:bloc_learn/presentation/searchPage/screen_search.dart';
 import 'package:bloc_learn/presentation/widgets/searchtittle.dart';
 import 'package:flutter/material.dart';
 
-const dummyUrl =
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT72K7rrhibF5FchnPc31OuHydO-yYDU0MMhg&usqp=CAU';
+class SearchResultWidget extends StatefulWidget {
+  const SearchResultWidget({super.key});
 
-class SearchResultWidget extends StatelessWidget {
- const SearchResultWidget({super.key});
+  @override
+  State<SearchResultWidget> createState() => _SearchResultWidgetState();
+}
+
+class _SearchResultWidgetState extends State<SearchResultWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        searchtittle('Movies and TV'),
+        searchtittle('Movies & TV'),
         kheigh,
         Expanded(
-          child: GridView.count(
-            crossAxisSpacing: 5,
-            mainAxisSpacing: 5,
-            childAspectRatio: 1 / 2,
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            children: List.generate(
-              20,
-              (index) {
-                return const mainCard();
-              },
-            ),
+          child: FutureBuilder(
+            future: getSearchResul(text.text.trim()),
+            builder: (context, snapshot) {
+              return GridView.builder(
+                itemCount: 10,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisExtent: 220,
+                    crossAxisSpacing: 8,
+                    mainAxisSpacing: 8),
+                itemBuilder: (context, index) {
+                  return snapshot.hasData
+                      ? Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      '$img${snapshot.data?[index].posterPath}'),
+                                  fit: BoxFit.cover)),
+                        )
+                      : const Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.red,
+                          ),
+                        );
+                },
+              );
+            },
           ),
-        ),
+        )
       ],
-    );
-  }
-}
-
-class mainCard extends StatelessWidget {
-  const mainCard({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: NetworkImage(dummyUrl),
-          fit: BoxFit.cover,
-        ),
-      ),
     );
   }
 }

@@ -1,11 +1,11 @@
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
 Text searchtittle(String tittle) {
-    return  Text(
-        tittle,
-        style:const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w600,
-        ),
-      );
-  }
+  return Text(
+    tittle,
+    style: const TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+    ),
+  );
+}

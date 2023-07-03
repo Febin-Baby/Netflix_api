@@ -3,16 +3,17 @@ import 'package:bloc_learn/presentation/homepage/home_page.dart';
 import 'package:bloc_learn/presentation/luaghpage/screen_fast_luagh.dart';
 import 'package:bloc_learn/presentation/main_page/widgets/botton_nav_widget.dart';
 import 'package:bloc_learn/presentation/newHot/new_hot.dart';
-import 'package:bloc_learn/presentation/searchPage/widgets/search_idle.dart';
+import 'package:bloc_learn/presentation/searchPage/screen_search.dart';
 import 'package:flutter/material.dart';
+
 class mainPage extends StatelessWidget {
   mainPage({super.key});
 
-  final pages= [
+  final pages = [
     homepage(),
     newHotpage(),
     screenFastLaugh(),
-    SearchIdle(),
+    ScreenSearch(),
     downloadsPAge(),
   ];
 
@@ -26,7 +27,8 @@ class mainPage extends StatelessWidget {
             return pages[value];
           },
         ),
-      ),bottomNavigationBar: bottomNaBar(),
+      ),
+      bottomNavigationBar: bottomNaBar(),
     );
   }
 }

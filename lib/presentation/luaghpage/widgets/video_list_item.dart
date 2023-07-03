@@ -1,5 +1,5 @@
 import 'package:bloc_learn/core/colors/colors.dart';
-import 'package:bloc_learn/presentation/searchPage/widgets/search_result.dart';
+import 'package:bloc_learn/core/constants.dart';
 import 'package:flutter/material.dart';
 
 class videoListItem extends StatelessWidget {
@@ -42,7 +42,7 @@ class videoListItem extends StatelessWidget {
                       backgroundImage: NetworkImage(dummyUrl),
                     ),
                     vidioActionWidget(
-                    icon: Icons.emoji_emotions, tittle: 'LOL'),
+                        icon: Icons.emoji_emotions, tittle: 'LOL'),
                     vidioActionWidget(icon: Icons.add, tittle: 'My list'),
                     vidioActionWidget(icon: Icons.share, tittle: 'Share'),
                     vidioActionWidget(icon: Icons.play_arrow, tittle: 'Play'),
@@ -62,7 +62,7 @@ class vidioActionWidget extends StatelessWidget {
   final String tittle;
 
   const vidioActionWidget(
-    {super.key, required this.icon, required this.tittle});
+      {super.key, required this.icon, required this.tittle});
 
   @override
   Widget build(BuildContext context) {
