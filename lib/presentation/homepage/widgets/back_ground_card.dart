@@ -20,7 +20,7 @@ class backGroundCard extends StatelessWidget {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image:
-                          NetworkImage('${img}${snapshot.data?[0].posterPath}'),
+                          NetworkImage('$img${snapshot.data?[0].posterPath}'),
                       fit: BoxFit.cover)),
             ),
             Positioned(

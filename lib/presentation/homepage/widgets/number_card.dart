@@ -22,7 +22,7 @@ class NumberCard extends StatelessWidget {
               return ListView(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
-                children: List.generate(snapshot.data!.length, (index) {
+                children: List.generate(10, (index) {
                   return Padding(
                     padding: const EdgeInsets.only(right: 8),
                     child: Stack(
@@ -58,10 +58,10 @@ class NumberCard extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                   fontSize: 120,
                                   decoration: TextDecoration.none,
-                                  decorationColor: Colors.black),
+                                  decorationColor: Colors.black,),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   );

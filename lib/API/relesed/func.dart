@@ -7,7 +7,10 @@ import 'package:bloc_learn/infrastructure/api_key.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<dynamic>> getRealeased() async {
-  var getresult =
+
+  
+  try {
+    var getresult =
       await http.get(Uri.parse('$domain/movie/popular?api_key=$apiKey'));
   if (getresult.statusCode == 200) {
     var responce = jsonDecode(getresult.body);
@@ -19,6 +22,10 @@ Future<List<dynamic>> getRealeased() async {
       return empty;
     }
   } else {
+    return [];
+  }
+  } catch (e) {
+    print('some error occured$e');
     return [];
   }
 }

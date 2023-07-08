@@ -25,7 +25,7 @@ class searcjhPage extends StatelessWidget {
               return ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return snapshot.data == null
+                return snapshot.data!.isEmpty
                 ? const Center(child: CircularProgressIndicator())
                 : Row(
                   children: [

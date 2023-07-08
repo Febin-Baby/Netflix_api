@@ -31,7 +31,7 @@ class ScreenSearch extends StatelessWidget {
                 children: [
                   CupertinoSearchTextField(
                     onChanged: (value) {
-                      getSearchResult(value.trim());
+                      getSearchResul(value.trim());
                       searchNotifier.notifyListeners();
                     },
                     focusNode: _focusNode,
